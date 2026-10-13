@@ -44,9 +44,10 @@ string Book::toFileFormat() const {
     string result = title + "|" + author + "|" + isbn + "|";
     if (isAvailable)
     {
-        return result += "0| "+ borrowerId;
+        return result += "1|";
     }
-    return result += "1|";
+    return result += "0|"+ borrowerId;
+    
 }
 void Book::fromFileFormat(const string& line){
     stringstream ss(line);
