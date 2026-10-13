@@ -36,7 +36,14 @@ void Book::returnBook(){
 string Book::toString() const {
     string result = "Titre: " + title + "\nAuteur: " + author + "\nISBN: " + isbn;
     if (!isAvailable) {
-        result += " Emprunter par: " + borrowerId;
+        result += "\nEmprunter par: " + borrowerId;
+    }
+    return result;
+}
+string Book::toStringAvecNom(const string& name) {
+    string result = "Titre: " + title + "\nAuteur: " + author + "\nISBN: " + isbn;
+    if (!isAvailable) {
+        result += "\nEmprunter par: " + name;
     }
     return result;
 }
