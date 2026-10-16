@@ -39,3 +39,4 @@ Notre-Dame de Paris|Victor Hugo|9782253002864|1|
 Candide|Voltaire|9782070380015|1|
 L'Assommoir|Émile Zola|9782253004233|1|
 Germinal|Émile Zola|9782253004226|0|USR003
+Pokemon|Sacha|123212323212|0|USR003
