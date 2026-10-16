@@ -25,8 +25,20 @@ bool FileManager::loadLibraryData(Library& library) {
 bool FileManager::saveBooksToFile(Library& library) {
     ofstream file(booksFileName);
     if (!file.is_open()) {
-        cout << "Erreur : Impossible d'ouvrir " << booksFileName << " en écriture.\n";
-        return false;
+        cout << "Impossible d'ouvrir " << booksFileName << " écriture vers tempBooks.txt\n";
+        ofstream file1;
+        file1.open("tempBooks.txt");
+        if (!file1.is_open()) {
+            cout << "Erreur : Sauvegarde na pas marcher\n";
+            return false;
+        }
+        auto books = library.getAllBooks();
+        for (Book* book : books) {
+            file1 << book->toFileFormat() << "\n";
+        }
+    
+        file1.close();
+        return true;
     }
     
     auto books = library.getAllBooks();
@@ -42,8 +54,20 @@ bool FileManager::saveBooksToFile(Library& library) {
 bool FileManager::saveUsersToFile(Library& library) {
     ofstream file(usersFileName);
     if (!file.is_open()) {
-        cout << "Erreur : Impossible d'ouvrir " << usersFileName << " en écriture.\n";
-        return false;
+        cout << "Impossible d'ouvrir " << usersFileName << " écriture vers tempUsers.txt\n";
+        ofstream file1;
+        file1.open("tempUsers.txt");
+        if (!file1.is_open()) {
+            cout << "Erreur : Sauvegarde na pas marcher\n";
+            return false;
+        }
+        auto users = library.getAllUsers();
+        for (User* user : users) {
+            file1 << user->toFileFormat() << "\n";
+        }
+        
+        file1.close();
+        return true;
     }
     
     auto users = library.getAllUsers();
@@ -123,13 +147,50 @@ void FileManager::createBackup() {
 }
 
 void FileManager::journalAdd(string message){
-    ofstream file(journalFileName);
-    if (!file.is_open()) {
-        cout << "Erreur : Impossible d'ouvrir " << journalFileName << " en écriture.\n";
+    ifstream fileL(journalFileName);
+    if (!fileL.is_open()) {
+        cout << "Impossible d'ouvrir " << journalFileName << " écriture vers tempJournal.txt\n";
+        ifstream file1;
+        file1.open("tempJournal.txt");
+        if (!file1.is_open()) {
+            cout << "Erreur : Saugarde de journal impossible.\n";
+        }
+        string line;
+        int count = 0;
+        while (getline(file1, line)) {
+            if (!line.empty()) {
+                message += "\n" + line;
+                count++;
+            }
+        }
+        file1.close();
+    }else{
+        string line;
+        int count = 0;
+        while (getline(fileL, line)) {
+            if (!line.empty()) {
+                message += "\n" + line;
+                count++;
+            }
+        }
+        fileL.close();
     }
     
-    file << message << "\n";
-
     
-    file.close();
+    ofstream fileE(journalFileName);
+    if (!fileE.is_open()) {
+        cout << "Impossible d'ouvrir " << journalFileName << " écriture vers tempJournal.txt\n";
+        ofstream file1;
+        file1.open("tempJournal.txt");
+        if (!file1.is_open()) {
+            cout << "Erreur : Saugarde de journal impossible.\n";
+        }
+        file1 << message;
+        file1.close();
+    }else{
+        fileE << message;
+        fileE.close();
+    }
+    
+    
 }

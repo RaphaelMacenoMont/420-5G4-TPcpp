@@ -1,4 +1,9 @@
-# Construire le projet
+# Raphael Maceno
+
+## Fonctionalité
+
+
+## Construire le projet
 Vous pouvez utiliser un dev container de base C++ de VScode.
 Le projet utilise cmake, pensez à l'inclure dans votre dev container.
 
@@ -10,7 +15,7 @@ $ cmake ..
 $ make
 ```
 
-# Répertoire data
+## Répertoire data
 
 Il contient 2 fichiers `books.txt`et `users.txt` que vous pouvez utilisez pour tester votre code.
 Pour ca il suffit de donner chemin vers le repertoire data avec l'application `bibliotheque -d <chemin verrs data>`
