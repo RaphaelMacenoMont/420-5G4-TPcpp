@@ -167,15 +167,29 @@ int main(int argc, char* argv[]) {
                 break;
             }
             
-            case 5: // Display All Books
-                library.displayAllBooks();
+            case 5: { // Display All Books
+                string choix = getInput("Entrez si vous voulez trier par titre(t) ou auteur(a): ");
+                if (choix == "t") {
+                    library.displayAllBooks(choix);
+                }
+                else if (choix == "a") {
+                    library.displayAllBooks(choix);
+                }
                 pauseForInput();
                 break;
+            }
             
-            case 6: // Display Available Books
-                library.displayAvailableBooks();
+            case 6: { // Display Available Books
+                string choix = getInput("Entrez si vous voulez trier par titre(t) ou auteur(a): ");
+                if (choix == "t") {
+                    library.displayAvailableBooks(choix);
+                }
+                else if (choix == "a") {
+                    library.displayAvailableBooks(choix);
+                }
                 pauseForInput();
                 break;
+            }
             
             case 7: { // Add User
                 string name = getInput("Entrez le nom de l'utilisateur : ");
