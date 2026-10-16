@@ -1,10 +1,10 @@
 # Raphael Maceno
 
 ## Fonctionalité
-1- Afficher le nom d’utilisateur plutôt que l’id dans l’affichage des livres.
-2- Tri des résultats par titre, auteur pour l’affichage (utilisation de la fonction de tri de la STL).
-3- Journal d’activités
-4- Correction du bug. Ajout de fonction de départ qui permet d'enregistrer les données sans données de fichier de départ
+1. Afficher le nom d’utilisateur plutôt que l’id dans l’affichage des livres.
+2. Tri des résultats par titre, auteur pour l’affichage (utilisation de la fonction de tri de la STL).
+3. Journal d’activités
+4. Correction du bug. Ajout de fonction de départ qui permet d'enregistrer les données sans données de fichier de départ
 
 ## Question 1 : C++
 Je vais expliquer comment j'ai fait le journal de progression.
